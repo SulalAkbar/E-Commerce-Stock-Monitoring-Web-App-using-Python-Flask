@@ -1,0 +1,84 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <table class="table table-bordered">
+         <tr>
+            <th>One Time Tasks</th></tr>
+        <!--<h4>One Time Tasks</h4>-->
+
+
+                {% if rows %}
+                <!--<ul >-->
+                {% for row in rows %}
+
+                    <!--<li><h5><a href="/scraped_tasks?task={{row[0]}}">{{row[1]}}</a></h5></li>-->
+                    <tr>
+                        <td><a href="/scraped_tasks?task={{row[0]}}">{{row[1]}}</a>
+
+                            <form method="POST" action="/delete_task" style="display: inline">
+                                    <input type="hidden" value="{{row[0]}}" name="id">
+                                    <input type="submit" class="btn btn-info btn-sm float-right" name="" value="Remove">
+                            </form>
+
+                        <!-- Download In CSV -->
+
+                            <form method="POST" action="/download_csv" style="display: inline">
+                                    <input type="hidden" value="{{row[0]}}" name="id">
+                                    <input type="submit" class="btn btn-info btn-sm float-right" name="" value="Download CSV">
+                            </form>
+
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+                <!--</ul>-->
+                {% endif %}
+
+
+    </table>
+
+
+
+    <table class="table table-bordered">
+
+        <tr><th>Monitor Tasks</th></tr>
+
+                {% if monitor_rows %}
+                <!--<ul>-->
+                {% for row in monitor_rows %}
+
+                    <!--<li><a href="/scraped_tasks?task={{row[0]}}">{{row[1]}}</a></li>-->
+
+                    <tr>
+                        <td><a href="/scraped_tasks?task={{row[0]}}">{{row[1]}}</a>
+
+                            <form method="POST" action="/delete_task" style="display: inline">
+                                    <input type="hidden" value="{{row[0]}}" name="id">
+                                    <input type="submit" class="btn btn-info btn-sm float-right" name="" value="Remove">
+                            </form>
+
+                                    <!-- Download In CSV -->
+
+                            <form method="POST" action="/download_csv" style="display: inline">
+                                    <input type="hidden" value="{{row[0]}}" name="id">
+                                    <input type="submit" class="btn btn-info btn-sm float-right" name="" value="Download CSV">
+                            </form>
+
+                        </td>
+                    </tr>
+
+
+
+                {% endfor %}
+                <!--</ul>-->
+                {% endif %}
+
+    </table>
+
+
+{% endblock %}

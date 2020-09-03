@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+  <h4>Current Interval Time :{{current_interval}} Hour</h4>
+  <br>
+  <form method="POST" action="/set_interval">
+
+    <div class="row form-group col-md-4">
+      <label for="fname"><h5>Enter New Interval Time</h5></label>
+
+      <input class="form-control" type="number" id="fname" name="interval"><br><br>
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+
+{% endblock %}
+
+

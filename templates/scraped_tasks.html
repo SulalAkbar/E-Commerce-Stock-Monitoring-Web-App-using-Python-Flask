@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Scraping APP</title>
+<style>
+table#t01{
+  table-layout: fixed;
+  width: 100%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+table#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+ background-color: #fff;
+}
+table#t01 th {
+  background-color: black;
+  color: white;
+}
+</style>
+
+</head>
+<body>
+
+
+{% if task_data %}
+
+
+<h3>Task Name : {{task_name}}</h3>
+
+
+    {% for i in task_data %}
+
+    <h4>Web Site : {{i}} </h4>
+
+    <table id="t01">
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Stock Available</th>
+      </tr>
+
+
+        {% for j in task_data[i] %}
+
+            <tr>
+
+                <td>{{task_data[i][j]['name']}}</td>
+                <td>{{task_data[i][j]['price']}}</td>
+                <td>{{task_data[i][j]['stock']}}</td>
+
+            </tr>
+
+        {% endfor %}
+
+
+    </table>
+
+    {% endfor %}
+
+{% endif %}
+
+
+
+
+</body>
+</html>

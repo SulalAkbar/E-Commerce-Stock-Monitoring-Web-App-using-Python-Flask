@@ -1,0 +1,91 @@
+
+
+
+body{
+
+  /*background-image: url(t.jpg) ;*/
+/*background-size:100%;*/
+  background-color: rgb(243,162,24); */
+  /*height: 500px;*/
+  background-position: center;
+  /*background-repeat: no-repeat;*/
+  background-size: cover;
+ position: relative;
+/*               */
+  width: 1200px;
+  height:600px;
+  /*background-image: url("img/background.jpg");*/
+  /*background-size: cover;  or contain depending on what you want */
+  background-position: center center;
+  /*background-repeat: no-repeat;*/
+  /*text-align:center;*/
+  margin:auto;
+  padding:0;
+
+}
+
+/*New Added CSS // CUSTOMIZATION   1-APRIL-019  */
+
+h2 {
+    color: white;
+}
+
+ul.list-group.border.border-success {
+    color: blue;
+}
+
+.table{
+
+    color: #007bff;
+}
+
+tbody {
+    background-color: white;
+}
+
+.table-bordered td {
+    border: 1px solid black;
+}
+
+.table-bordered th {
+    border: 1px solid black;
+}
+
+fieldset.border.p-2 p {
+    color: white;
+    font-size: larger;
+    letter-spacing: 1px;
+}
+
+select.custom-select.mr-sm-2 {
+    border: 1;
+    border: 1px solid black;
+}
+
+.form-control{
+
+border: 1px solid black;
+}
+
+fieldset.border.p-2{
+
+    border:1px solid black;
+}
+
+/*MAking ALLocation form aligned Centerly*/
+
+.col-9 {
+    margin: 0 auto;
+}
+
+.col-5{
+
+    margin: 0 auto;
+
+}
+
+fieldset#border {
+    border: 5px solid #dee2e6!important;
+}
+
+

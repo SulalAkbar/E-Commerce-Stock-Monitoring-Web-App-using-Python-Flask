@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if not sites and not data %}
+  <h1>Create Task</h1>
+  <form method="POST" action="/tasks">
+
+    <div class="row form-group col-md-4">
+      <label for="fname"><h5>Enter Number Of Sites :</h5></label>
+      <input class="form-control" type="number" id="fname" name="sites"><br><br>
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+{% endif %}
+
+{% if sites %}
+      <h1> Now Enter No of Products  </h1>
+      <form method="POST" action="/tasks">
+    {% for site in sites %}
+
+          <label for="sites"><h5>Choose site :</h5></label>
+            <select id="sites" name="no_of_sites">
+              <option  value="size">Size</option>
+              <option  value="endclothing">endclothing</option>
+              <option  value="adidas">adidas</option>
+              <option  value="prodirect">prodirect</option>
+              <option  value="jdsport">jdsport</option>
+              <option  value="sportsdirect">sportsdirect</option>
+              <option  value="mandmdirect">mandmdirect</option>
+              <option  value="schuh">schuh</option>
+              <option  value="amazon">amazon</option>
+              <option  value="office">office</option>
+              <option  value="jogging">jogging</option>
+              <option  value="offspring">offspring</option>
+            </select>
+
+
+          <label for="fname"><h5>Enter Number Of Products for this site :</h5></label>
+          <input type="number" id="fname" name="no_of_products">
+          <br><br>
+
+    {% endfor %}
+
+      <input type="submit">
+      </form>
+
+{% endif %}
+
+
+<! Now Showing to get Urls and Stock Information ->
+{% if data %}
+
+  <form method="POST" action="/scrape">
+
+    <label for="task_name"><h5>Enter Task Name :</h5></label>
+    <input type="text" id="task_name" name="task_name">
+
+    {% for i in data %}
+        <h2>Site : {{i}}</h2>
+        {% for j in range(data[i]) %}
+              <label for="product_url"><h5>Enter Product Url :</h5></label>
+              <input type="text" id="product_url" name="url">
+
+              <label for="stock_info"><h5>Enter Stock Info :</h5></label>
+              <input type="text" id="stock_info" name="stock"><br><br>
+
+
+              <input type="hidden" id="identifier" name="identifier" value="{{i}}">
+
+        {% endfor %}
+    {% endfor %}
+
+
+    <label for="monitor"><h6>One Time or Monitor</h6></label>
+            <select id="sites" name="option">
+              <option  value="monitor">Monitor</option>
+              <option  value="scrape">Scrape</option>
+
+            </select>
+  <input type="submit">
+  </form>
+
+{% endif %}
+
+
+
+
+{% endblock %}
+
+
+

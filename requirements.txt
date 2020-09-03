@@ -1,0 +1,6 @@
+requests
+bs4
+apscheduler
+flask
+flask_executor
+lxml
